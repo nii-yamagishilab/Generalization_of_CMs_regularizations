@@ -1,0 +1,38 @@
+data:
+  padding: true
+  sort: false
+  sampling_rate: 16000
+  max_len: 20 # 16000 * 5, only used for trunc
+
+dataloader:
+  shuffle: true
+  batch_size: 64
+  num_workers: 8
+  pin_memory: true
+  collate_fn: random
+
+model:
+  arch: lcnn
+  model_args:
+    in_dim: 1
+    out_dim: 1
+    domain_align_weight: 1.0
+
+train:
+  optimizer: SGD
+  optimizer_params:
+    lr: 0.001
+    momentum: 0.9
+    weight_decay: 0.0001
+  scheduler: step
+  scheduler_params:
+    step_size: 1
+    gamma: 0.9
+  epoch: 40
+  device: cuda
+  metalambda: 0.1
+  grllambda: 0.1
+  gamma: 5.0
+
+log:
+  log_interval: 5
