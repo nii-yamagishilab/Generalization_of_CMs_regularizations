@@ -11,6 +11,9 @@ cat temp/* data.tar.gz && tar xzvf data.tar.gz
 ./run.sh
 ```
 
+## Results
+![results](./pics/results.png)
+
 ## License
 BSD 3-Clause License
 
